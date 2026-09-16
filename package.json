@@ -1,0 +1,18 @@
+{
+  "name": "planing-poker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Planning Poker для команди: BE, FE, QA голосують, BA спостерігає",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "dev": "concurrently -n server,client -c blue,green \"npm:dev:server\" \"npm:dev:client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm run build && npm start --prefix server",
+    "test": "npm test --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
